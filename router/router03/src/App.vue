@@ -8,7 +8,10 @@
 <!--    <button @click="homeClick">首页</button> -->
 <!--    <button @click="aboutClick">关于</button>-->
     <!--    占位-->
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
+
   </div>
 </template>
 

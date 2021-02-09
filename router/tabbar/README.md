@@ -1,21 +1,26 @@
 # tabbar
 
-> A Vue.js project
+### 动态绑定样式属性
+    1.定义TabBarItem属性
+    name: "TabBarItem",
+    props: {
+      path: String,
+      activeColor:{
+        type: String,
+        //设置默认值
+        default: 'blue'
+      }
+    }
+    2.添加计算属性
+    computed: {
+      activeStyle(){
+        return this.isActive?{color:this.activeColor}:{}
+      }
+    },
+    3.绑定样式属性
+    <div  :style="activeStyle">
+      <slot name="item-text"></slot>
+    </div>
+    4.使用自定义属性修改样式
+     <tab-bar-item  path="/home" active-color="red">
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
