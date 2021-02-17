@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>promise01</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>promise01</title>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+<script>
+  // new Promise((resolve,reject)=>{
+  //   setTimeout((data)=>{
+  //     //成功调用 resole
+  //     //resolve("hello word");
+  //     //失败调用reject
+  //     reject("error message")
+  //   },1000);
+  // }).then((data)=>{
+  //   console.log(data);
+  // }).catch((error)=>{
+  //   console.log(error);
+  // })
+
+  // new Promise((resolve,reject)=>{
+  //   setTimeout((data)=>{
+  //     resolve("hello word");
+  //   },1000);
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return Promise.resolve(data+"1111");
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return Promise.resolve(data+"2222");
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return Promise.resolve(data+"3333");
+  // }).then((data)=>{
+  //   console.log(data);
+  // })
+
+  // new Promise((resolve,reject)=>{
+  //   setTimeout((data)=>{
+  //     resolve("hello word");
+  //   },1000);
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return data+"1111";
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return data+"2222";
+  // }).then((data)=>{
+  //   console.log(data);
+  //   return data+"3333";
+  // }).then((data)=>{
+  //   console.log(data);
+  // })
+
+  Promise.all([
+    new Promise((resolve, reject) => {
+      setTimeout((data) => {
+        resolve("abc ")
+      }, 1000);
+    }),
+    new Promise((resolve, reject) => {
+      setTimeout((data) => {
+        resolve("123 ")
+      }, 4000);
+    }),
+    new Promise((resolve, reject) => {
+      setTimeout((data) => {
+        resolve("456 ")
+      }, 2000);
+    })
+  ]).then(result => {
+    console.log(result)
+  })
+</script>
 </html>
