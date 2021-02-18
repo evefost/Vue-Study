@@ -11,10 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-
+      //可以配置多个前缀反向代码
       '/api': {
         //设置你调用的接口域名和端口号
-        target: 'http://localhost:8080',
+        target: 'http://localhost:7777',
+        //允许跨域
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
